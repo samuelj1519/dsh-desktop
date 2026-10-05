@@ -1,0 +1,23 @@
+# Dependencies and generated output
+node_modules/
+lib/
+dist/
+coverage/
+*.log
+*.tsbuildinfo
+
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local configuration, credentials, and runtime data
+.env
+.env.*
+!.env.example
+.aws/
+/connection.json
+/connection.json.*
+/dsh-home/
+/workspace/

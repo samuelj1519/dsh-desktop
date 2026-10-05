@@ -1,0 +1,34 @@
+name: Bug report
+description: Report a reproducible desktop client problem.
+title: '[Bug]: '
+body:
+  - type: markdown
+    attributes:
+      value: Use English. Report vulnerabilities through SECURITY.md rather than this public form. Redact credentials, session data, and personal paths.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS and architecture, client revision/version, Node and dsh versions, and connection mode.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the smallest sequence that triggers the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include redacted error text or backend diagnostics, and screenshots if useful.
+    validations:
+      required: true

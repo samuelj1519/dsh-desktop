@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest a focused improvement.
+title: '[Feature]: '
+body:
+  - type: markdown
+    attributes:
+      value: Use English and describe the user problem before proposing implementation details.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What task is difficult with the current client?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain the expected result and any platform requirements.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

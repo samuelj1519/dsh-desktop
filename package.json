@@ -1,0 +1,41 @@
+{
+  "name": "dsh-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local desktop carrier for an explicitly selected dsh runtime",
+  "main": "lib/main.js",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "package:mac": "npm run build && electron-packager . DSH --platform=darwin --arch=arm64 --out=dist --overwrite --ignore=\"^/(control|test|dist|\\.git)($|/)\"",
+    "package:windows": "npm run build && electron-packager . DSH --platform=win32 --arch=x64 --out=dist --overwrite --ignore=\"^/(control|test|dist|\\.git)($|/)\"",
+    "package:linux": "npm run build && electron-packager . DSH --platform=linux --arch=x64 --out=dist --overwrite --ignore=\"^/(control|test|dist|\\.git)($|/)\"",
+    "build": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "electron": "44.5.1",
+    "@electron/packager": "20.3.0",
+    "typescript": "7.0.2",
+    "@types/node": "26.6.4"
+  },
+  "license": "MIT",
+  "author": "Samuel-J",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelj1519/dsh-desktop.git"
+  },
+  "homepage": "https://github.com/samuelj1519/dsh-desktop#readme",
+  "bugs": {
+    "url": "https://github.com/samuelj1519/dsh-desktop/issues"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "keywords": [
+    "electron",
+    "dsh",
+    "desktop",
+    "local-client"
+  ]
+}

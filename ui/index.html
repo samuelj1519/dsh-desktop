@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+  <title>连接 dsh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header><h1>连接 dsh</h1><p>使用已有服务，或由客户端启动本机后端。</p></header>
+    <div class="tabs" role="tablist" aria-label="连接方式">
+      <button id="external-tab" type="button" role="tab" aria-selected="true" aria-controls="external-panel" tabindex="0">现有服务</button>
+      <button id="owned-tab" type="button" role="tab" aria-selected="false" aria-controls="owned-panel" tabindex="-1">客户端启动</button>
+    </div>
+    <form id="connection-form">
+      <section id="external-panel" role="tabpanel" aria-labelledby="external-tab">
+        <div class="field"><label for="endpoint">服务地址</label><input id="endpoint" type="url" spellcheck="false" placeholder="http://127.0.0.1:3080" autocomplete="off"></div>
+        <p class="help">连接本机已运行的 dsh。退出客户端时，服务继续运行。</p>
+      </section>
+      <section id="owned-panel" role="tabpanel" aria-labelledby="owned-tab" hidden>
+        <div class="field"><label for="nodePath">Node</label><input id="nodePath" type="text" spellcheck="false" autocomplete="off"><button type="button" data-choose="nodePath" aria-label="选择 Node 程序">选择</button></div>
+        <div class="field"><label for="launcherPath">dsh CLI</label><input id="launcherPath" type="text" spellcheck="false" autocomplete="off"><button type="button" data-choose="launcherPath" aria-label="选择 dsh CLI 文件">选择</button></div>
+        <p class="help">CLI 请选择已安装 dsh 的 JavaScript 入口文件，如 <code>lib/bin.js</code>。</p>
+        <div class="field"><label for="homePath">dsh Home</label><input id="homePath" type="text" spellcheck="false" autocomplete="off"><button type="button" data-choose="homePath" aria-label="选择 dsh Home">选择</button></div>
+        <p class="help">默认使用客户端自己的持久目录。要使用已有模型配置和会话，可明确选择对应的 dsh Home。</p>
+        <div class="field"><label for="cwd">工作目录</label><input id="cwd" type="text" spellcheck="false" autocomplete="off"><button type="button" data-choose="cwd" aria-label="选择工作目录">选择</button></div>
+        <p class="help">启动后分配空闲端口。退出客户端时，会等待所启动的后端停止；数据目录保留。</p>
+      </section>
+      <p id="config-error" class="error" role="alert" hidden></p>
+      <div class="actions"><button id="connect" class="primary" type="submit">连接</button><button id="stop" type="button" hidden>断开连接</button></div>
+    </form>
+    <section class="connection-status" aria-label="连接状态">
+      <p id="status" role="status" aria-live="polite">正在读取连接设置…</p>
+      <p id="connected-url" class="help" hidden></p>
+      <p id="action-error" class="error" role="alert" hidden></p>
+      <details id="diagnostic-details" hidden><summary>查看后端诊断</summary><pre id="diagnostics"></pre></details>
+    </section>
+  </main>
+  <script type="module" src="../lib/renderer.js"></script>
+</body>
+</html>
