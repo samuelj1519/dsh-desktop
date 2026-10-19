@@ -14,10 +14,10 @@
     "build": "tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "electron": "44.5.1",
+    "electron": "44.7.2",
     "@electron/packager": "20.3.0",
     "typescript": "7.0.2",
-    "@types/node": "26.6.4"
+    "@types/node": "26.6.5"
   },
   "license": "MIT",
   "author": "Samuel-J",
